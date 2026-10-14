@@ -29,7 +29,9 @@ a{color:inherit}
 #scene{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
 .bg-img{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;opacity:0;transition:opacity .8s}
 .hero.has-bg .bg-img{opacity:1}
-.hero.has-bg #scene{mix-blend-mode:screen}
+.hero.has-bg #scene{mix-blend-mode:normal}
+.hero.has-bg::after{background:linear-gradient(90deg,rgba(4,10,38,.92) 0%,rgba(4,10,38,.55) 38%,rgba(4,10,38,.1) 65%,transparent 80%),linear-gradient(0deg,var(--abyss) 0%,transparent 28%)}
+.hero.has-bg h1.name{filter:drop-shadow(0 3px 0 #5a1d00) drop-shadow(0 4px 18px rgba(0,0,0,.8))}
 .bg-pick{position:absolute;z-index:6;right:max(16px,env(safe-area-inset-right,0px));top:calc(70px + env(safe-area-inset-top,0px));display:flex;gap:8px}
 .bg-pick label,.bg-pick button{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(4,10,38,.7);color:var(--gold);border:1px solid var(--gold);padding:8px 12px;border-radius:4px;cursor:pointer}
 .bg-pick label:hover,.bg-pick button:hover{background:rgba(255,203,61,.15)}

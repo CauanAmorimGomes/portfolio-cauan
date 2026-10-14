@@ -53,7 +53,7 @@ cpBtn.addEventListener('click',()=>{
 
 /* fundo escolhido pelo usuário (fica só no navegador dele) */
 const heroEl=document.getElementById('topo'),bgImg=document.getElementById('bgImg'),bgFile=document.getElementById('bgFile'),bgClear=document.getElementById('bgClear');
-function setBg(url){bgImg.style.backgroundImage=url?'url("'+url+'")':'';heroEl.classList.toggle('has-bg',!!url);bgClear.hidden=!url;}
+function setBg(url){bgImg.style.backgroundImage=url?'url("'+url+'")':'';heroEl.classList.toggle('has-bg',!!url);bgClear.hidden=!url;if(window.__setSceneBg)window.__setSceneBg(!!url);}
 try{const saved=localStorage.getItem('heroBg');if(saved)setBg(saved);}catch(e){}
 bgFile.addEventListener('change',()=>{const f=bgFile.files[0];if(!f)return;const rd=new FileReader();
   rd.onload=()=>{setBg(rd.result);try{localStorage.setItem('heroBg',rd.result);}catch(e){}};rd.readAsDataURL(f);bgFile.value='';});
@@ -113,6 +113,10 @@ function buildTokens(){
 }
 buildTokens();
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{if(document.fonts.check('900 20px "Big Shoulders Display"'))buildTokens();});
+
+/* com imagem de fundo: mostra só os blocos das stacks */
+window.__setSceneBg=on=>{[core,dome,grid,pts].forEach(o=>o.visible=!on);rings.forEach(r=>r.g.children[0].material.opacity=on?.18:.35);scene.fog.density=on?0:.03;};
+window.__setSceneBg(heroEl.classList.contains('has-bg'));
 
 /* interação */
 const mouse={x:0,y:0,tx:0,ty:0},ndc=new THREE.Vector2(9,9),ray=new THREE.Raycaster();let hovered=null;
