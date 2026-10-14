@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cauan Amorim Gomes | Desenvolvedor Back-end</title>
+<meta name="description" content="Portfólio de Cauan Amorim Gomes, desenvolvedor back-end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <span class="logo">CAUAN<b>.</b>DEV</span>
+    <ul><li><a href="#stacks">Stacks</a></li><li><a href="#contato">Contato</a></li></ul>
+  </div>
+</nav>
+
+<header class="hero" id="topo">
+  <div class="bg-img" id="bgImg"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="bg-pick">
+    <input type="file" id="bgFile" accept="image/*">
+    <label for="bgFile">Trocar fundo</label>
+    <button type="button" id="bgClear" hidden>Remover</button>
+  </div>
+  <div class="hero-copy">
+    <div class="wrap"><div class="inner">
+      <div class="eyebrow">Desenvolvedor back-end</div>
+      <h1 class="name">Cauan Amorim Gomes</h1>
+      <p class="lede">APIs rápidas, sistemas robustos e código com peso de metal. Hoje construindo com <span class="roll" id="roll">Python</span></p>
+      <div class="ctas">
+        <a class="btn primary" href="#stacks">Ver minhas stacks ↓</a>
+        <a class="btn ghost" href="#contato">Falar comigo</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hint">Clique num bloco 3D para abrir a stack</div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+<section class="stacks" id="stacks">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Tabela de elementos</div>
+        <h2>Minhas <em>stacks</em></h2>
+        <p>Cada stack tem a sua própria reação. Passe o mouse para inclinar os cards.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar stacks">
+        <button id="f-all" aria-pressed="true" data-f="all">Todas</button>
+        <button id="f-web" aria-pressed="false" data-f="web">Web e APIs</button>
+        <button id="f-low" aria-pressed="false" data-f="low">Baixo nível</button>
+        <button id="f-py" aria-pressed="false" data-f="py">Python e visão</button>
+      </div>
+    </div>
+
+    <div class="grid" id="grid">
+      <article class="card" id="st-js" data-cat="web" style="--c:#ffcb3d;--i:0">
+        <div class="fx fx-js"><span class="loop"></span><span class="code"><b>const</b> play = () =&gt; <i>'loud'</i>;</span></div>
+        <div class="meta"><span class="sym">Js</span><div><h3>JavaScript</h3><p class="kind">Linguagem</p></div></div>
+        <p class="desc">Base da web: lógica no navegador e no servidor, eventos e código assíncrono.</p>
+        <div class="tags"><span>ES2024</span><span>Async</span><span>Node.js</span></div>
+      </article>
+
+      <article class="card" id="st-ts" data-cat="web" style="--c:#6f9bff;--i:1">
+        <div class="fx fx-ts"><div class="slots">
+          <div class="slot" style="--d:0"><span class="piece"></span><span class="lbl">: string</span></div>
+          <div class="slot r" style="--d:1"><span class="piece"></span><span class="lbl">: number</span></div>
+          <div class="slot d" style="--d:2"><span class="piece"></span><span class="lbl">: boolean</span></div>
+        </div></div>
+        <div class="meta"><span class="sym">Ts</span><div><h3>TypeScript</h3><p class="kind">Complementa o JavaScript</p></div></div>
+        <p class="desc">Tipagem sobre o JavaScript para pegar erros antes do código rodar.</p>
+        <div class="tags"><span>Tipos</span><span>Interfaces</span><span>Generics</span></div>
+      </article>
+
+      <article class="card" id="st-cs" data-cat="web" style="--c:#ff5fa2;--i:2">
+        <div class="fx fx-cs"><div class="lines">
+          <div class="t" style="--d:0"><b>GET</b> /api/usuarios/1</div>
+          <div class="t" style="--d:1"><span class="ok">200 OK</span> 14ms</div>
+          <div class="t in" style="--d:2">{ "id": 1,</div>
+          <div class="t in" style="--d:3">"nome": "Cauan" }</div>
+        </div></div>
+        <div class="meta"><span class="sym">C#</span><div><h3>C#</h3><p class="kind">APIs</p></div></div>
+        <p class="desc">APIs robustas com ASP.NET Core, injeção de dependência e Entity Framework.</p>
+        <div class="tags"><span>ASP.NET Core</span><span>EF Core</span><span>REST</span></div>
+      </article>
+
+      <article class="card" id="st-dj" data-cat="web" style="--c:#3dffb0;--i:3">
+        <div class="fx fx-dj">
+          <div class="flow">
+            <span class="req"></span>
+            <span class="nd" style="--d:0">URL</span><span class="nd" style="--d:1">View</span><span class="nd" style="--d:2">Model</span><span class="nd" style="--d:3">HTML</span>
+          </div>
+          <span class="cap">urls.py → views.py → models.py</span>
+        </div>
+        <div class="meta"><span class="sym">Dj</span><div><h3>Django</h3><p class="kind">Framework web Python</p></div></div>
+        <p class="desc">Aplicações e APIs com ORM, autenticação e painel admin prontos.</p>
+        <div class="tags"><span>ORM</span><span>DRF</span><span>Admin</span></div>
+      </article>
+
+      <article class="card" id="st-c" data-cat="low" style="--c:#c9d6ff;--i:4">
+        <div class="fx fx-c"><div class="mem">
+          <span class="ptr">*p</span>
+          <div class="cell"><b style="--d:0">0x1F</b><small>a00</small></div>
+          <div class="cell"><b style="--d:1">0x7A</b><small>a01</small></div>
+          <div class="cell"><b style="--d:2">0x00</b><small>a02</small></div>
+          <div class="cell"><b style="--d:3">0xC3</b><small>a03</small></div>
+          <div class="cell"><b style="--d:4">0x2E</b><small>a04</small></div>
+          <div class="cell"><b style="--d:5">0xFF</b><small>a05</small></div>
+        </div></div>
+        <div class="meta"><span class="sym">C</span><div><h3>C</h3><p class="kind">Complementa o C++</p></div></div>
+        <p class="desc">Ponteiros, memória manual e o funcionamento da máquina por dentro.</p>
+        <div class="tags"><span>Ponteiros</span><span>malloc</span><span>Structs</span></div>
+      </article>
+
+      <article class="card" id="st-cpp" data-cat="low" style="--c:#a98bff;--i:5">
+        <div class="fx fx-cpp"><div class="wrapb">
+          <div class="bits" id="bits"></div>
+          <span class="lab"><b>std::bitset</b>&lt;32&gt; flags;</span>
+        </div></div>
+        <div class="meta"><span class="sym">C++</span><div><h3>C++</h3><p class="kind">Baixo nível</p></div></div>
+        <p class="desc">Desempenho máximo com controle de memória, classes e templates.</p>
+        <div class="tags"><span>STL</span><span>Templates</span><span>Performance</span></div>
+      </article>
+
+      <article class="card" id="st-py" data-cat="py" style="--c:#4fd2ff;--i:6">
+        <div class="fx fx-py"><div class="lines">
+          <div class="t" style="--d:0"><b>def</b> processar(dados):</div>
+          <div class="t in" style="--d:1"><b>for</b> item <b>in</b> dados:</div>
+          <div class="t in2" style="--d:2">salvar(item)</div>
+          <div class="t in" style="--d:3"><b>return</b> True</div>
+        </div></div>
+        <div class="meta"><span class="sym">Py</span><div><h3>Python</h3><p class="kind">Linguagem</p></div></div>
+        <p class="desc">Scripts, automação e processamento de dados com código limpo e legível.</p>
+        <div class="tags"><span>Automação</span><span>Dados</span><span>pip</span></div>
+      </article>
+
+      <article class="card" id="st-cv" data-cat="py" style="--c:#ff4d5e;--i:7">
+        <div class="fx fx-cv"><span class="scan"></span><span class="obj"></span><span class="bbox"><span>objeto 0.97</span></span></div>
+        <div class="meta"><span class="sym">Cv</span><div><h3>OpenCV</h3><p class="kind">Visão computacional</p></div></div>
+        <p class="desc">Processamento de imagem e vídeo: detecção, filtros e rastreamento de objetos.</p>
+        <div class="tags"><span>Detecção</span><span>Filtros</span><span>NumPy</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="wrap">
+    <div>
+      <h2>Bora criar algo <span>barulhento?</span></h2>
+      <p>Me chama por e-mail ou pelas redes.</p>
+    </div>
+    <div class="contacts">
+      <div class="mail">
+        <span class="lbl">E-mail</span>
+        <span class="addr" id="mailAddr">cg8346641@gmail.com</span>
+        <button type="button" id="copyMail">Copiar</button>
+      </div>
+      <div class="links">
+        <a class="btn ghost" href="https://github.com/CauanAmorimGomes" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/cauan-amorim-gomes-1107452a3/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <span class="sig">feito com HTML, CSS, JavaScript e Three.js</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
